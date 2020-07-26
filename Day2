@@ -1,0 +1,52 @@
+flash session
+make a form in view
+make a controller in app--http
+make 2 router for html form and controller
+code for flash session
+
+
+app----Http----Controllers-----User.php
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class Users extends Controller
+{
+    //
+    function submit(request $req)
+    {
+        print_r($req->input());
+    }
+}
+
+
+
+
+
+resources-----views-----user.blade.php
+
+make a form
+<html>
+<head>
+<title>Flash Session Tutorial</title>
+</head>
+<body>
+<form action="submit" method="POST">
+@csrf
+<input type="text" name="user">
+<button type="submit">Submit Data</button>
+</form>
+</body>
+</html>
+
+
+
+routs-----web.php
+
+Route::view('form','user');
+Route::post('submit','Users@submit');
+
+
